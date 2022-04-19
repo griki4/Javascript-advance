@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*JS引擎如何进行内存管理
+        *   1.内存生命周期
+        *   -分配内存空间，获得它的使用权
+        *   -存储数据，并且可以对它反复进行操作
+        *   -释放内存空间
+        *   2.释放内存
+        *       -局部变量：在函数执行完毕之后自动被释放
+        *       -对象：成为垃圾对象（没有任何变量对其进行引用的时候），被浏览器自动回收*/
+        let a = {name:"tom"};
+        a = null;//对象成为垃圾对象被回收，但是变量a依然存在，其值为null
+
+        function fun() {
+            let b = {}
+        }
+
+        fun();//变量被释放，对象也作为垃圾对象被回收
+    </script>
+</head>
+<body>
+
+</body>
+</html>

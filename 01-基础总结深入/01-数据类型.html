@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*数据类型
+        *   -基本数据类型：number string boolean null undefined
+        *   -引用数据类型：Object Function Array 后两者是特殊的对象
+        *
+        *
+        * 判断数据类型的方法
+        *   -typeof 返回数据类型的字符串表达
+        *       -可以判断：undefined /function/数值/字符串/布尔值
+        *       -不能判断：null和Object array和Object
+        *
+        *   -instanceof 判断对象的具体类型
+        *
+        *   -===
+        *       -可以判断 null undefined*/
+
+        var a;
+        console.log(typeof a, a===undefined, typeof a==='undefined');//undefined true true
+        console.log(undefined === 'undefined');
+        a = 3;
+        a = "sre";
+        a = true;
+        a = null;
+        console.log(typeof a === 'object');//true
+        a = [1,3,console.log];
+        console.log(typeof a === 'object');//true
+
+        var b1 = {
+            b2: [1, 'abc', console.log],
+            b3: function () {
+                console.log('b3')
+                return function () {
+                    return 'xfzhang'
+                }
+            }
+        }
+        console.log(b1.b2 instanceof Object, b1.b2 instanceof Array);//true true
+        console.log(b1.b3 instanceof Object, b1.b3 instanceof Function);//true true
+        console.log(typeof b1.b3 === 'function');
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

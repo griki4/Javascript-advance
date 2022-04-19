@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        * 1.两个变量指向同一个对象，通过任何一个变量进行对象内容的修改，会反映到所有的引用变量上
+        * 2.两个引用变量指向同一个变量，如果让其中一个变量指向新的对象，另一个变量依然会指向原来的对象
+        * */
+        var obj1 = {name: 'Tom'}
+        var obj2 = obj1//obj1 obj2指向了同一个对象
+        obj2.age = 12
+        console.log(obj1.age)  // 12 反映到了所有的引用变量身上
+        function fn (obj) {
+            obj.name = 'A'
+        }
+        fn(obj1)
+        console.log(obj2.name) //A
+
+
+        var a = {age: 12}
+        var b = a
+        a = {name: 'BOB', age: 13}
+        b.age = 14
+        console.log(b.age, a.name, a.age) // 14 Bob 13
+
+        function fn2 (obj) {
+            obj = {age: 15}//创建了一个新的对象 赋值给函数的局部变量obj 函数执行完 局部变量释放 该对象被回收
+        }
+        fn2(a)//对a来说没有进行任何的操作
+
+        console.log(a.age)//13
+    </script>
+</head>
+<body>
+
+</body>
+</html>

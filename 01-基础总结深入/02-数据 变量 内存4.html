@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*JS在调用函数传参数的时候，是值传递还是引用传递？
+        * -第一种理解 都是值传递 根据实参的类型分为数据值和内存地址值
+        * -第二种理解 可能是值传递 也可能引用传递*/
+        let a = 3;
+        function fn(a) {
+            a = a + 1;//等式左边的a是函数的局部变量 函数执行完即被释放 右边的a则是全局变量，它的值是3
+        };
+        fn(a);
+        console.log(a);//3
+
+        let obj = {name:"Tom"};
+        function fun(obj) {
+            console.log(obj.name);//这里并非是直接把对象传递了进去，而是传递了obj变量存储的内存地址
+        };
+        fun(obj);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

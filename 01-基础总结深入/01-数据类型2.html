@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*1.null和undefined的区别？
+        *   undefined是定义了变量但是未赋值
+        *   null则是定义了变量也赋值了 只是值为null而已
+        * 2.什么时候赋值为null?
+        *   -要指定一个变量为对象，但是此刻对象中还未有任何数据
+        *   -结束前 让对象称为垃圾对象 让浏览器进行垃圾回收
+        * 3.变量类型和数据类型
+        *   -数据类型：基本类型 对象类型
+        *   -变量类型
+        *       -基本类型：保存基本类型数据的值
+        *       -引用类型：保存引用对象的内存地址*/
+        let a;
+        console.log(a);
+        a = null;
+        console.log(a);
+
+        let b = null;
+        b = [1,5,5,15,8];
+        b = null;//垃圾回收
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
