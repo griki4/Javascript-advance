@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IIFE</title>
+</head>
+<body>
+
+<script>
+    /*1.什么是IIFE
+    *   全称: Immediately-Invoked Function Expression
+    *
+    * 2.IIFE的作用？
+    *   -隐藏实现
+    *   -不会污染外部的命名空间
+    *   -用于编码JS模块
+    * */
+    (function () {
+        let a = 3;
+        console.log(a + 3);
+    })();//6
+
+    let a = 4;
+    console.log(a);//4
+
+    ;(function () {
+        var a = 1
+        function test () {
+            console.log(++a)
+        }
+        window.$ = function () { // 向外暴露一个全局函数
+            return {
+                test: test
+            }
+        }
+    })()
+
+    $().test();//2
+</script>
+</body>
+</html>

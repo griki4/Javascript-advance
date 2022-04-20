@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+
+<script>
+    /*1.this是什么？
+        -函数本质上都是通过对象来调用的，没有指定对象则默认为window
+    *   -所有函数内部都默认存在的一个变量
+    *   -它的值是当前调用函数的对象
+
+    2.this的指向
+        -test() window
+        -p.test() p
+        -new test() 构造函数创建的对象
+        -test.call(obj) obj*/
+        function Person(color) {
+        console.log(this)
+        this.color = color;
+        this.getColor = function () {
+        console.log(this)
+        return this.color;
+    };
+        this.setColor = function (color) {
+        console.log(this)
+        this.color = color;
+    };
+    }
+
+        Person("red"); //this是谁?
+
+        var p = new Person("yello"); //this是谁?
+
+        p.getColor(); //this是谁?
+
+        var obj = {};
+        p.setColor.call(obj, "black"); //this是谁?
+
+        var test = p.setColor;
+        test(); //this是谁?
+
+        function fun1() {
+        function fun2() {
+            console.log(this);
+        }
+
+        fun2(); //this是谁?
+    }
+        fun1();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <script>
+        /*1.什么是对象？
+        *   -多个数据的封装体，可以封装多个数据的容器
+        *   -一个对象代表一个真实的事物
+        *
+        * 2.为什么要使用对象？
+        *   -为了同意管理数据
+        *
+        * 3.对象的组成？
+        *   -属性：属性名（字符串）和属性值（任意）
+        *   -方法：一种特殊的属性，它的属性值是函数
+        *
+        * 4.访问对象属性的办法
+        *   -对象.属性名：简单，但是有时候不能使用
+        *   -对象["属性名"]：复杂，但是通用*/
+
+        let obj = {
+            'name':"Tom",
+            age:20,
+            setName: function (name) {
+                this.name = name;
+            },
+            setAge: function (age) {
+                this.age = age;
+            }
+        };
+
+        console.log(obj.name);//Tom
+        console.log(obj["age"]);//20
+
+        console.log(obj.setName);
+        /*ƒ (name) {
+                this.name = name;
+            }*/
+
+        obj.setName("Jack");
+        console.log(obj.name);//Jack
+    </script>
+</head>
+<body>
+
+</body>
+</html>

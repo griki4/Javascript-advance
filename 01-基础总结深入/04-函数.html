@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+    <script>
+        /*1.函数是什么？
+        *   -实现特定功能的代码封装体
+        *   -只有函数可以被执行，其他类型数据不可以
+        *
+        * 2.为什么要使用函数？
+        *   -提高代码的利用率，提高效率
+        *   -方便阅读
+        * 3.定义函数的方法？
+        *   -函数声明
+        *   -表达式
+        * 4.调用函数的方法？
+        *   -fun()
+        *   -obj.fun()
+        *   -new fun()
+        *   -fun.call/apply(obj);
+        *
+        * */
+
+        function fun1() {//声明
+            console.log("fun()1");
+        };
+
+        let fun2 = function () {//表达式
+            console.log("fun2()");
+        };
+
+        fun1();
+        fun2();
+
+        let obj = {};
+        function test() {
+            this.name = "Jack";
+        };
+
+        //obj.test();//Uncaught TypeError: obj.test is not a function 报错
+        test.call(obj);
+        console.log(obj.name);//Jack
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

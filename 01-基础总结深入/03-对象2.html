@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*什么时候需要使用["属性名"]的方式访问对象属性
+        *   -1.属性名含有特殊字符：- 空格等
+        *   -2.属性名不确定的时候，利用一个变量来存储属性名*/
+
+        let b = {};
+        // b.contenet-type = "text/json";//报错
+        b['content-type'] = "text/json";
+        console.log(b["content-type"]);//text/json
+
+        let propName = "age";
+        let value = 18;
+        b[propName] = value;
+        console.log(b[propName]);//18
+    </script>
+</head>
+<body>
+
+</body>
+</html>
