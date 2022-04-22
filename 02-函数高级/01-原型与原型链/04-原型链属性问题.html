@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链属性问题</title>
+</head>
+<body>
+<script>
+    /*1.查找对象属性的时候，会自动到原型链中查找
+    * 2.设置对象属性则不会访问原型链，对象没有对应的属性则直接将属性添加到对象中，而不是添加到原型中
+    * 3.方法一般是定义到原型中，属性一般通过构造函数定义在对象中*/
+
+    function Fn() {
+
+    }
+    Fn.prototype.a = "xxx"
+    let fn = new Fn()
+    let fn2 = new Fn()
+    console.log(fn.a)//xxx
+    fn2.a = "yyy"
+    console.log(fn2.a)//yyy
+    console.log(fn,fn2)
+
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+    }
+
+    Person.prototype.setName = function (name) {
+        this.name = name
+    }
+
+    let p1 = new Person("Tom", 12)
+    p1.setName('Bob')
+    console.log(p1)
+    let p2 = new Person("Kite", 18)
+    p2.setName("Rose")
+    console.log(p2)
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型</title>
+</head>
+<body>
+<script>
+  /*1.函数的prototype属性
+  *     -每个函数都有一个prototype属性，它默认指向一个Object空对象（也就是原型对象）
+  *     -原型对象中有一个constructor,它指向函数对象
+  *
+  * 2.给函数原型添加属性和方法，则函数的所有实例对象都可以访问这些属性和方法*/
+
+  console.log(Date.prototype)
+  function Fun() {
+
+  }
+  console.log(Fun.prototype)
+
+  console.log(Date.prototype.constructor === Date)//true
+  console.log(Fun.prototype.constructor === Fun)//true
+
+  let f = new Fun()
+  Fun.prototype.test = function () {
+
+  }
+  console.log(f.test)//f可以访问test这个方法
+</script>
+</body>
+</html>

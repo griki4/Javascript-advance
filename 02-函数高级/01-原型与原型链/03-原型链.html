@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+<script>
+    /*1.原型链
+    *   访问一个对象的属性的时候
+    *   -首先在对象自身中寻找，找到则返回
+    *   -未找到，沿着__proto__这条线，在原型对象中寻找，找到返回
+    *   -访问到原型链尽头也未找到，最后返回undefined
+    * 也称为隐式原型链，用于查找对象的属性和方法
+    *
+    * 2.关于原型链的知识查看《JavaScript高级程序设计》，以及掘金文章中关于原型链相关的图解
+    * https://juejin.cn/post/6934498361475072014*/
+    console.log(Object.prototype.__proto__)//null
+    function Fn() {
+        this.test1 = function () {
+            console.log("test1()")
+        }
+    }
+    console.log(Fn.prototype)
+
+    Fn.prototype.test2 = function () {
+        console.log("test2()")
+    }
+
+    let fn = new Fn()
+    fn.test1()//test1()
+    fn.test2()//test2()
+    console.log(fn.toString())//[object Object]
+    console.log(fn.test3)//undefined
+
+    //1.函数的显示原型都指向一个空的Object实例对象（除了Object（）之外）
+    console.log(Fn.prototype instanceof Object)//true
+    console.log(Object.prototype instanceof Object)//false
+
+    //2.所有的函数都是Function的实例对象（包括Function本身）
+    console.log(Function.prototype === Function.__proto__)//true
+
+    //3.Object的原型对象是原型链的尽头
+    console.log(Object.prototype.__proto__)//null
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>instanceof</title>
+</head>
+<body>
+<script>
+    /*instanceof
+    * A instanceof B
+    * 作用，判断函数B的显示原型是否在对象A的原型链上*/
+
+    function Fo() {
+
+    }
+    let fn = new Fo()
+    console.log(fn instanceof Fo)//true
+    console.log(fn instanceof Object)//true
+
+    console.log(Object instanceof Function)//true
+    console.log(Object instanceof Object)//true
+    console.log(Function instanceof Function)//true
+    console.log(Function instanceof Object)//true
+
+    console.log(Object instanceof Fo)//false
+</script>
+</body>
+</html>

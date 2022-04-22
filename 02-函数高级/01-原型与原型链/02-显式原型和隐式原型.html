@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显式原型和隐式原型</title>
+</head>
+<body>
+<script>
+    /*1.每个函数都有一个prototype属性，称为显式原型
+    * 2.每个对象都有一个__proto__，称为隐式原型
+    * 3.实例对象的隐式原型和它的构造函数的显示原型指向的是同一个对象
+    * 4.总结
+    *   -函数的显示原型是在函数创建的时候被添加的
+    *   -对象的隐式原型是在对象被创建的时候添加的
+    *   -开发者可以直接操作函数的显示原型，不能操作隐式原型（ES6之前）*/
+
+    function Fn() {
+
+    }
+    console.log(Fn.prototype)
+
+    let fn = new Fn()
+    console.log(fn.__proto__)
+
+    console.log(Fn.prototype === fn.__proto__)//true
+    Fn.prototype.test = function () {
+
+    }
+
+    console.log(fn.test)//返回函数test
+</script>
+</body>
+</html>
