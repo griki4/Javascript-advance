@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量提升与函数提升</title>
+</head>
+<body>
+<script>
+    /*.1变量声明提升
+    * -用var声明的变量，在定义语句之前就可以被访问到。
+    * -值：undefinde
+    *
+    * 2.函数声明提升
+    * -通过function声明的函数，在定义的位置之前可以调用
+    * -值：函数定义（对象）
+    *
+    * 3.变量和函数提升如何产生？*/
+var a = 3
+function fun() {
+    console.log(a)
+    var a = 4
+}
+fun()//undefined 在函数内部var将变量声明提升却未赋值，函数优先访问的是内部的变量
+fun2()//fun2 函数声明提升，让函数可以在其定义之前的地方被调用
+fun3() //无法调用，fun3虽然是函数但是是根据函数表达式定义的，会按照变量提升处理
+
+function fun2() {
+    console.log("fun2")
+}
+
+var fun3 = function () {
+    console.log("fun3")
+}
+</script>
+</body>
+</html>

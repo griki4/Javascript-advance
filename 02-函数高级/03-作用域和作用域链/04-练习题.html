@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域练习</title>
+</head>
+<body>
+<script>
+    var x = 10;
+    function fn() {
+        console.log(x);
+    }
+    function show(f) {
+        var x = 20;
+        f();//这里是调用函数，而不是将函数写在show函数内部。作用域链：fn函数作用域==>全局作用域
+    }
+    show(fn);//10
+
+    var fn = function () {
+        console.log(fn)
+    }
+    fn()//fn函数本身
+
+    var obj = {
+        fn2: function () {
+            console.log(fn2)//fn2在这种查找方式下是obj的属性，变量查找的方式是找不到的
+            //console.log(this.fn2)
+        }
+    }
+    obj.fn2()
+</script>
+</body>
+</html>

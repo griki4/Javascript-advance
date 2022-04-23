@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>执行上下文</title>
+</head>
+<body>
+<script>
+    /*1.代码分类
+    *   -全局代码
+    *   -局部代码（函数代码）
+    * 2.全局执行上下文
+    *   2.1执行全局代码前将window指定为全局执行上下文对象
+    *   2.2全局代码预处理
+    *       -收集用var定义的变量，值为undefined，将其添加为window的属性
+    *       -收集function声明的函数，值为函数定义，添加为window的方法
+    *       -将this指向window
+    *   2.3执行全局代码
+    *
+    * 3.函数执行上下文
+    *   3.1函数被调用执行前，创建函数执行上下文对象（虚拟的，存在于栈中）
+    *   3.2局部代码预处理
+    *       -将实参的值赋给实参，并将其添加为函数执行上下文属性
+    *       -arguments==>赋值(实参列表), 添加为执行上下文的属性
+    *       -var定义的局部变量==>undefined, 添加为执行上下文的属性
+    *       -function声明的函数 ==>赋值(fun), 添加为执行上下文的方法
+    *       -this==>赋值(调用函数的对象)
+    *   3.3执行函数体代码*/
+
+    console.log(a1)//undefined
+    a2()//a2()
+    console.log(this)//window
+
+    var a1 = 2
+    function a2() {
+        console.log("a2()")
+    }
+
+
+</script>
+</body>
+</html>

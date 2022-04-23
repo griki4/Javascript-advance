@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域链</title>
+</head>
+<body>
+<script>
+    /*理解
+    * 一个作用域中可以包含另一个作用域，这样多个作用域之间的包含关系就构成了作用域链
+    * 变量查找的时候就是沿着作用域链从内部作用域向外部作用域查找的
+    *
+    * 内部作用域可以访问到外部作用域的变量
+    * 外部作用域则不能访问到内部作用域的变量*/
+    var a = 1
+    function fn1() {
+        var b = 2
+        function fn2() {
+            var c = 3
+            console.log(c)//3
+            console.log(b)//2
+            console.log(a)//1
+            console.log(d)//报错 d is not defined作用域链中不存在d这变量
+        }
+        fn2()
+    }
+    fn1()
+</script>
+</body>
+</html>
