@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包理解</title>
+</head>
+<body>
+<script>
+    /*1.闭包产生
+    *  -一个嵌套函数内部的函数引用了外部函数的变量就会产生闭包
+    * 2.闭包
+    *   -使用chrome调试工具查看
+    *   -理解1：闭包就是嵌套的内部函数
+    *   -理解2：闭包是嵌套函数中的一个对象，对象中包含了引用变量
+    * 3.闭包产生条件
+    *   -函数嵌套
+    *   -内部函数引用了外部的变量*/
+    function fun1() {
+        var a = 2
+        function fun2() {
+            console.log(a)
+        }
+        fun2()
+    }
+    fun1()
+    //闭包的产生是在函数定义的时候，类似作用域
+</script>
+</body>
+</html>

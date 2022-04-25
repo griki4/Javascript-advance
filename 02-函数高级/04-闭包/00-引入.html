@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引入</title>
+</head>
+<body>
+<button>测试1</button>
+<button>测试2</button>
+<button>测试3</button>
+<script>
+  //点击一个按钮，弹出它是第几个
+  var btns = document.getElementsByTagName("button")/*
+  for (var i = 0, length = btns.length; i < length; i++) {
+    let btn = btns[i]
+    btn.onclick = function () {
+      alert("第" + (i + 1) + "个")
+    }
+  }*/
+  //循环结束才绑定事件
+
+  /*for (var i = 0, length = btns.length; i < length; i++) {
+      var btn = btns[i]
+      btn.index = i
+      btn.onclick = function () {
+          alert("第" + (this.index + 1) + "个")
+      }
+
+  }*/
+
+  //闭包写法
+  for (var i = 0, length = btns.length; i < length; i++) {
+      (function (j) {
+          var btn = btns[j]
+          btn.onclick = function () {
+              alert("第" + (j + 1) + "个")
+          }
+      })(i)
+  }
+
+
+</script>
+</body>
+</html>

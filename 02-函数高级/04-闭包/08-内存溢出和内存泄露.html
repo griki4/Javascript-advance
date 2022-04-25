@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1.内存溢出
+    *   程序需要的内存超出了剩余的内存
+    *
+    * 2.内存泄露
+    * 内存被占有没有释放，大量的内存泄露容易发生内存溢出
+    *   -意外的全局变量
+    *   -闭包
+    *   -循环定时器没有及时清除
+    * */
+/*    let obj = {}
+    for (let i = 0; i < 1000; i++) {
+        let array = new Array(10000000)
+        console.log("---------")
+    }*/
+
+    function fun1() {
+        a = 3
+        console.log(a)
+    }
+
+    let a =setInterval(function () {
+        console.log("Bury")
+    },1000)
+    clearInterval(a)
+
+    function fun2() {
+        let c = 1
+        function fun3() {
+            console.log(c)
+        }
+        return fun3
+    }
+    let f = fun2()
+    f()
+
+</script>
+</body>
+</html>

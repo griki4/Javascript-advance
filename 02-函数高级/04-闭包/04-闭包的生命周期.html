@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包生命周期</title>
+</head>
+<body>
+<script>
+    /*1.闭包产生，函数定义完成的时候，并不是在函数执行完的时候
+    * 2.闭包死亡，包含闭包的对象称为垃圾对象的时候*/
+    function fun1() {
+        var a = 2
+        function fun2() {
+            a++
+            console.log(a)
+        }
+        return fun2
+    }
+    let f = fun1()
+    f()//3
+    f()//4
+</script>
+</body>
+</html>
