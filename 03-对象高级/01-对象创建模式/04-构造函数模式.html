@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数模式</title>
+</head>
+<body>
+<script>
+    /*构造函数
+    *   -自定义构造函数，利用new来创建对象
+    *   -创建多个确定类型的对象
+    *   -缺点：对象中相同的方法会占有各自的内存空间，浪费性能*/
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+        this.setName = function (name) {
+            this.name = name
+        }
+    }
+
+    function Dog(name, age) {
+        this.name = name
+        this.age = age
+        this.setName = function (name) {
+            this.name = name
+        }
+    }
+
+    let p1 = new Person("Tom", 25)
+    let d1 = new Dog("WW",3)
+    console.log(p1 instanceof Person)
+    console.log(p1 instanceof Dog)
+    console.log(d1 instanceof Dog)
+
+</script>
+</body>
+</html>

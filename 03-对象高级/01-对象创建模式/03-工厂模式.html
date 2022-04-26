@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*工厂模式
+    *   -使用函数批量生产对象
+    *   -适用场景：需要创建大量对象的时候
+    *   -缺点：对象没有具体类型，都是Object*/
+    function creatPerson(name, age) {
+        let obj = {
+            name:name,
+            age:age,
+            setName:function (name) {
+                this.name = name
+            }
+        }
+        return obj//工厂模式的函数返回值设置为对象
+    }
+
+    let p1 = creatPerson("Tom",12)
+    let p2 = creatPerson("Jack",15)
+    console.log(p1, p2)
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*字面量创建对象
+    *   -利用{}创建对象，并且指定属性和方法
+    *   -适用场景：初始属性和对象确定
+    *   -缺点：创建多个对象的时候代码重复*/
+    let p = {
+        name:"Tom",
+        age:12,
+        setName:function (name) {
+            this.name = name
+        }
+    }
+
+    p.setName("Jack")
+    console.log(p)
+</script>
+</body>
+</html>

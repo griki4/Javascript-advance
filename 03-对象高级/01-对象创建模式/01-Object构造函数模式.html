@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1.构造函数模式
+    *   -方法：首先利用构造函数创建一个空的对象，再动态添加属性和方法
+    *   -适用场景：初始属性不确定
+    *   -缺点：语句太多*/
+    let person = new Object()
+    person.name = "Tom"
+    person.age = 12
+    person.setName = function (name) {
+        this.name = name
+    }
+    console.log(person)
+</script>
+</body>
+</html>

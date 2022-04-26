@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数继承</title>
+</head>
+<body>
+<script>
+    /*红宝书中提到的盗用构造函数继承的方式
+    *   -也称为经典继承或者对象伪类*/
+    function Parent() {
+        this.name = ["Dante", "Vergil"]
+    }
+    function Child() {
+        Parent.call(this)
+    }
+    /*this在Child中指向由它所创建的实例对象
+    * call的作用：将函数应用于括号里面的对象
+    * Parent函数的作用，赋予它创建的实例对象一个name属性
+    *   -总结：这条语句就是将Child创建的实例对象赋予一个name属性，属性值就是Parent当中的值*/
+    let c1 = new Child()
+    c1.name.push("Nero")
+    let c2 = new Child()
+    console.log(c1, c2)//['Dante', 'Vergil', 'Nero'] ['Dante', 'Vergil']
+
+    //盗用构造函数继承的方式可以避免原型链继承导致的引用类型属性被所有实例共享的问题
+    //同时构造函数还可以向父类中传递参数
+
+    /*缺点：也就是构造函数创建对象的缺点
+    *   -每次创建对象都会新建一个方法
+    *   -子类不能访问父类原型上的方法*/
+</script>
+</body>
+</html>

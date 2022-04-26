@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缺点</title>
+</head>
+<body>
+<script>
+    //引用类型的属性被所有的实例所共享
+    function Parent() {
+        this.name = ["Dante", "Vergil"]
+    }
+    function Child() {
+
+    }
+
+    Child.prototype = new Parent()
+    let c1 = new Child()
+    c1.name.push("Nero")
+    console.log(c1.name)//['Dante', 'Vergil', 'Nero']
+    let c2 = new Child()
+    console.log(c2.name)//['Dante', 'Vergil', 'Nero']
+    //c2并未进行任何修改，但是它的name属性仍旧发生了c1对应的变化
+</script>
+</body>
+</html>
