@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>声明常量</title>
+</head>
+<body>
+<script>
+    const A = 100
+    //1.const声明的量必须要赋初始值
+    // const c//Missing initializer in const declaration
+
+    //2.const声明的一般使用全大写
+
+    //3.const声明的量也具有块级作用域
+
+    //4.常量的值不可以修改
+    // A = 200 //Assignment to constant variable.
+    //5.对于数组和对象元素的修改不算对常量的修改，因为变量所保存的地址值仍旧是原来的地址值
+    const S = ["Dante", "Vergil"]
+    S.push("Nero")
+    console.log(S)
+
+
+</script>
+</body>
+</html>

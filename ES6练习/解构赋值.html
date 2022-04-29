@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解构赋值</title>
+</head>
+<body>
+<script>
+  /*ES6允许对数组和对象结构赋值，并对变量进行操作*/
+  const Array = ['DMC', "MH", "RE", "JB"]
+  let [d, mh, re] = Array
+  console.log(d)//DMC
+  console.log(mh)
+  console.log(re)
+
+
+  const person = {
+      name:"Lack",
+      age:25,
+      sayName:function () {
+          console.log("my name")
+      }
+  }
+
+  //let {}括号中是对象的属性名，得到的是对应属性的值
+  let {name,sayName} = person
+  console.log(name)
+  sayName()
+</script>
+</body>
+</html>

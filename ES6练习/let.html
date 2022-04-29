@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let</title>
+</head>
+<body>
+<script>
+    //let用于声明变量
+    let a
+    let g,f,k
+    let e = 200
+    let o = 551, h = "kidaj", m = []
+
+    //1.let不能重复声明变量
+    // let person = "Jack"
+    // let person = "Tom"// Identifier 'person' has already been
+
+    //2.块级作用域
+    /*let声明的变量会产生块级作用域
+    * 变量只能在块级作用域内被获取
+    * 在if else while for等语句中也会生效*/
+    // {
+    //     let demon = "Dante"
+    // }
+    // console.log(demon)//demon is not defined
+
+    //3.不会进行变量提升
+    // console.log(c)
+    // let c = 200//Cannot access 'c' before initialization
+
+    //4.不会影响作用域链
+    {
+        let p = 1
+        function fun() {
+            console.log(p)
+        }
+        fun()
+    }//1
+</script>
+</body>
+</html>
