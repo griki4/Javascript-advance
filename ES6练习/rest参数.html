@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rest</title>
+</head>
+<body>
+<script>
+    //ES6提供了rest参数用于代替arguments
+    function fun(a, b) {
+        console.log(arguments)
+    }
+    fun(5,"Dante")//返回一个类数组
+
+    function fun2(...args) {
+        console.log(args)
+    }
+    fun2("Vergil", "Nero")//返回数组
+
+    //rest参数应放在所有参数的最后，可以理解为剩余参数，它将所有剩余的参数保存起来
+    function fun3(a, b, ...args) {
+        console.log(a)//1
+        console.log(b)//35
+        console.log(args)//[85,8458,458,5,4]
+    }
+    fun3(1,35,85,8458,458,5,4)
+</script>
+</body>
+</html>

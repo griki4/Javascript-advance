@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展运算符</title>
+</head>
+<body>
+<script>
+    /*... 为ES6提供的扩展运算符，可以将一个数组拆分为参数序列*/
+    const array = [1,2,3,5]
+    function fun() {
+        console.log(arguments)
+    }
+    fun(...array)
+</script>
+</body>
+</html>

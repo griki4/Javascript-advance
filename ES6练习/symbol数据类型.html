@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*ES6新增的数据类型symbol, 表示唯一的值*/
+    let s1 = Symbol()
+    console.log(s1, typeof s1)
+    let s4 = Symbol("Jack")
+    let s5 = Symbol("Jack")
+    console.log(s4 === s5)//false
+
+    let s2 = Symbol.for("Jack")
+    let s3 = Symbol.for("Jack")
+    console.log(s2 === s3)//true
+
+    //Symbol类型的值不能进行运算
+    // let str = "jk"
+    // let re = str + s1
+    // console.log(re)
+</script>
+</body>
+</html>

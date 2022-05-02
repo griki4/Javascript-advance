@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数默认值</title>
+</head>
+<body>
+<script>
+    //给形参设置默认值，
+    //调用函数时，如无对应形参则适用默认值，否则适用传递值。
+    //默认值一般放在最后面
+    function sum(a, b, c=10) {
+        return a + b + c
+    }
+    console.log(sum(5, 2))//17
+
+
+    //结合解构赋值使用
+    function connect({name, age, gender}) {
+        console.log(name)
+        console.log(age)
+        console.log(gender)
+    }
+    connect({
+        name:"Jack",
+        age:12,
+        gender:"man"
+    })
+</script>
+</body>
+</html>

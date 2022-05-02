@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*let game = {
+      name:"俄罗斯方块",
+      up:function () {},
+      down:function () {}
+  }
+
+  let methods = {
+      up:Symbol(),
+      down:Symbol()
+  }
+
+  game[methods.up] = function () {
+      console.log("change")
+  }
+  game[methods.down] = function () {
+      console.log("fast")
+  }
+  console.log(game)*/
+
+  let youxi = {
+      name:"DMC",
+      [Symbol()]:function () {
+          console.log("Dante")
+      },
+      [Symbol()]:function () {
+          console.log("Vergil")
+      }
+  }
+  console.log(youxi)
+</script>
+</body>
+</html>

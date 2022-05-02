@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #boc {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+<div id="boc"></div>
+<script>
+    //点击后2s改变背景颜色
+    let box = document.getElementById("boc")
+    box.addEventListener("click", function () {
+        setTimeout(() => {
+            this.style.background = "red"
+        }, 2000)
+    })
+    //若不使用箭头函数，则this指向的是window
+
+    //丛数组中返回偶数
+    const array = [1, 6, 9, 12, 56, 100]
+    const result = array.filter(item => item % 2 === 0)
+    console.log(result)
+
+    /*箭头函数适用于那些和this无关的函数，比如数组的回调，定时器
+    * 不适用于和this相关的函数，比如事件回调， 对象的方法*/
+</script>
+</body>
+</html>

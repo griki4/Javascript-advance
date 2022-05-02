@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*symbol的内置属性
+    * 整体可以作为对象的属性来使用*/
+/*    class Person{
+        static [Symbol.hasInstance](param) {
+            console.log(param)
+            console.log("用于类型检测")
+        }
+    }
+    let person = {
+        name:"Dante"
+    }
+    console.log(person instanceof Person)*/
+
+    //决定数组合并时是否展开
+    let a = [1,2,3]
+    let b = [4,5,6]
+    b[Symbol.isConcatSpreadable] = false//合并时不能展开
+    let c = a.concat(b)
+    console.log(c)
+</script>
+</body>
+</html>

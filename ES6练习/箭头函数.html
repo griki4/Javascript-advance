@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<script>
+    //ES6允许使用箭头函数
+/*    let fun = (a, b) => {
+
+    }*/
+
+    /*箭头函数的特性*/
+    //1.箭头函数的this为静态，始终为函数声明时所在作用域下的this
+  /*  window.name = "Dante"
+    let p = {
+        name:"Nero"
+    }
+    function getName() {
+       console.log(this.name)
+    }
+
+    let getName2 = () => {
+        console.log(this.name)
+    }
+    // getName()//Dante
+    // getName2()//Dante
+    getName.call(p)///Nero
+    getName2.call(p)//Dante*/
+
+    //2.箭头函数不能作为构造函数
+/*    let Person = (name) => {
+        this.name = name
+    }
+    let p2 = new Person("Jack")
+    console.log(p2)//Person is not a constructor*/
+
+    //3.箭头函数不能使用arguments变量
+/*    let fun = (a, b, c) => {
+        console.log(arguments)
+    }
+    fun(1, 2, 3)// arguments is not defined*/
+
+    //4.箭头函数可以简写的情况
+        //4.1 只有一个形参，省略小括号
+    let add = n => {
+        return n + n
+    }
+    console.log(add(6))
+        //4.2 只有一条语句，大括号和return省略
+    let pow = n => n * n
+    console.log(pow(9))
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+
+  //1.用于数组合并
+  const arr1 = [1,2]
+  const arr2 = [3,4]
+  let array = [...arr1,...arr2]
+  console.log(array)
+
+  //2.数组的克隆
+  const arr3 = [5,6,9]
+  let a = [...arr3]
+  console.log(arr3)
+
+  //将类数组转换为真正的数组
+  let box = document.querySelectorAll('div')
+  const divArray = [...box]
+  console.log(divArray)
+</script>
+</body>
+</html>
