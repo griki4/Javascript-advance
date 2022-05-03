@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1,2,3,4,5,6,5,4,3,2,1]
+    //数组去重
+    let s1 = [...new Set(arr)]
+    console.log(s1)
+
+    let arr2 = [4,5,6,5,6]
+    //交集
+    //filter方法返回一个数组，新的数组中的元素是符合指定条件的元素。内部的函数的返回值为布尔值，true表示符合条件
+/*    let r1 = [...new Set(arr)].filter(item => {
+        let s2 =new Set(arr2)
+        if (s2.has(item)) {
+            return true
+        }else {
+            return false
+        }
+    })*/
+    let r1 = [...new Set(arr)].filter(item => new Set(arr2).has(item))
+   /* let r1 = [...new Set(arr)].filter(function () {
+        return true
+    })*/
+    console.log(r1)
+</script>
+</body>
+</html>

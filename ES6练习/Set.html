@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set</title>
+</head>
+<body>
+<script>
+  /*Set表示集合
+  * 类似数学上的集合，Set与数组类似，但是集合中的元素都是互不相等的*/
+  let s = new Set()
+  console.log(s,typeof s)//Set(0){size: 0} 'object'
+  let s2 = new Set(["Dante", "Vergil", "Dante"])
+
+  //元素个数
+  let si = s2.size
+  console.log(si)
+
+  //集合元素不重复
+  console.log(s2)//{'Dante', 'Vergil'}
+
+  //增加元素
+  s2.add("Nero")
+
+  //删除元素
+  // s2.delete("Vergil")
+
+  //查找元素
+  console.log(s2.has("Lady"))//false
+
+  //清空集合
+  // s2.clear()
+  console.log(s2)
+
+  //for of 遍历元素
+  for (let d of s2) {
+      console.log(d)
+  }
+
+
+
+
+</script>
+</body>
+</html>

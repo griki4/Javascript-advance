@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+</head>
+<body>
+<script>
+    /*Map
+    * 一种全新的数据结构，类似对象，数据以键值对的形式存在
+    * 键的值可以是任何类型的数据*/
+    let m = new Map()
+    console.log(m, typeof m)//Map(0){size: 0} 'object'
+
+    //添加元素
+    m.set("Jack", 18)
+    m.set("change", function () {
+        console.log("change the name")
+    })
+    let key = {
+        game:"Devil May Cry"
+    }
+    m.set(key, ["Dante", "Nero", "V"])
+    console.log(m)
+
+    //元素个数
+    console.log(m.size)
+
+    //删除元素
+    m.delete("Jack")
+    console.log(m)
+
+    //获取元素
+    console.log(m.get(key))
+
+    //遍历
+    for (let mi of m) {
+        console.log(mi)
+    }//返回的元素都是以数组的形式
+
+
+</script>
+</body>
+</html>

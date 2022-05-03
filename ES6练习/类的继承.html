@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组合继承</title>
+</head>
+<body>
+<script>
+    //回顾JavaScript高级中的组合继承
+    function Phone(brand,price) {
+        this.brand = brand
+        this.price = price
+    }
+    Phone.prototype.call = function () {
+        console.log("call")
+    }
+
+    function cellPhone(brand,price,size,color) {
+        //将父类应用于子类使用call方法
+        Phone.call(this,brand,price)
+        this.size = size
+        this.color = color
+    }
+
+    //将子类的原型指定为父类的实例对象
+    cellPhone.prototype = new Phone()
+
+    let s = new cellPhone("xiaomi", 2999, "6.67inch", "black")
+    console.log(s)
+    s.call()
+</script>
+</body>
+</html>

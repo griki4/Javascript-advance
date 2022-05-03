@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的静态成员</title>
+</head>
+<body>
+<script>
+    class Phone {
+        static name = "Phone"
+        static change = function () {
+            console.log("call")
+        }
+
+    }
+    let mi = new Phone()
+    console.log(mi.name)//undefined
+    console.log(Phone.name)//
+    Phone.change()//call
+
+    //static标准的属性和方法属于类，但是不属于类创建的实例对象
+</script>
+</body>
+</html>

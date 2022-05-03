@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方法重写</title>
+</head>
+<body>
+<script>
+    //ES6方法实现组合继承
+    class Phone {
+        //构造方法，默认执行，只能使用constructor
+        constructor(brand,price) {
+            this.brand = brand
+            this.price = price
+        }
+
+        //添加方法
+        call() {
+            console.log("打电话")
+        }
+    }
+
+    //子类继承父类 extend
+    class CellPhone extends Phone {
+        constructor(brand,price,size,color) {
+            super(brand,price);//和ES5中的Phone.call(this,brand,price)效果一致
+            this.size = size
+            this.color = color
+        }
+
+        play() {
+            console.log("Play Game")
+        }
+
+        call() {
+            console.log("视频通话")
+        }
+    }
+
+    let mi = new CellPhone("xiaomi", 2399, "6.67inch","red")
+    console.log(mi)
+    mi.call()//视频通话
+</script>
+</body>
+</html>

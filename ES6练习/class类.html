@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+<script>
+    //class是ES6引入的创建对象的新方法，类似于python中面向对象编程的思想那一节
+    //一个语法糖，让JavaScript更像一门面向对象的编程语言
+
+    //ES5方法
+    function Phone(brand, price) {
+        this.brand = brand
+        this.price = price
+    }
+    Phone.prototype.call = function () {
+        console.log("打电话")
+    }
+    let Huawei = new Phone("huawei",5999)
+    console.log(Huawei)
+    Huawei.call()
+
+    //ES6 class方法
+    class smartPhone {
+        //构造方法，默认执行，只能使用constructor
+        constructor(brand,price) {
+            this.brand = brand
+            this.price = price
+        }
+
+        //添加方法
+        call() {
+            console.log("打电话")
+        }
+    }
+
+    let mi = new smartPhone("xiaomi", 2399)
+    console.log(mi)
+    mi.call()
+</script>
+</body>
+</html>

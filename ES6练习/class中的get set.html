@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get  set</title>
+</head>
+<body>
+<script>
+    class Phone {
+        get price() {
+            console.log("读取价格属性")
+            return 25
+        }
+
+        set price(newValue) {
+            console.log("修改价格属性")
+        }
+    }
+    let s = new Phone()
+    console.log(s.price)
+    s.price = 29
+
+    //get 在属性被读取的时候，内部的代码会自动执行
+    //set 在属性被修改的时候，内部的代码会自动执行
+</script>
+</body>
+</html>
