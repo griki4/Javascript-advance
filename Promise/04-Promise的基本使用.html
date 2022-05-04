@@ -35,7 +35,15 @@
     })
 
     console.log("Promise之后")
-
+    
+    p.then(
+        value => {
+            console.log("成功的回调", value)
+        },
+        reason => {
+            console.log("失败的回调", reason)
+        }
+    )
 
 </script>
 </body>
