@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1.同步回调
+    *   -立即执行，执行完结束，不会放入回调队列
+    *   -比如：数组遍历相关的函数，Promise中的excutor函数*/
+    let array = [1, 2, 3]
+    array.forEach(item => {
+        console.log(item)
+    })//后续语句必须等待当前回调函数执行完毕才能执行
+    console.log("遍历之后")
+
+    /*2.异步回调
+    *   -不会立即执行，会被放入任务队列中
+    *   -比如：定时器/ajax请求等*/
+    setTimeout(() => {
+        console.log("setTimeout")
+    },0)//后续代码可以在该定时器之前执行
+    console.log("定时器之后")
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise的基本使用</title>
+</head>
+<body>
+<script>
+    /*Promise是ES6新增的引用类型，可以用new来创建实例化对象。
+    * Promise内部包含的是异步操纵
+    *
+    * Promise有三种状态，pending（等待态）、resolved（执行态）、rejected（拒绝态）
+    * 根据异步操作的结果 Promise会从等待态转变为执行态或拒绝态，且不会再改变
+    *   -执行态和拒绝态之间是不能相互转换的
+    * Promise转变为执行态时，会得到一个私有value;转变为拒绝态时，会得到一个私有reason;
+    * 执行的异步代码会得到这个value或者reason
+    *
+    * Promise的参数为一个函数，称为执行器函数。
+    * 执行器函数有两个参数 resolve和reject 两者都是函数*/
+    //1.创建一个Promise对象
+    const p = new Promise((resolve,reject) => {
+       console.log("执行excutor")
+        //2.执行异步操作
+        setTimeout(() => {
+            const time = Date.now()
+            //时间为偶数代表成功，否者失败
+            if (time % 2 === 0) {
+                //成功时调用resolve(value)
+                resolve("成功的数据，time=" + time)
+            }else {
+                //失败时调用reject(reason)
+                reject("失败的数据，time=" + time)
+            }
+        },1000)
+    })
+
+    console.log("Promise之后")
+
+
+</script>
+</body>
+</html>
