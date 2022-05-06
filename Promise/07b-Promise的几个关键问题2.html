@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*1.状态的改变和回调函数的指定的顺序？
+  *     -1.1都可以，正常先指定回调函数，然后改变状态
+  *     -1.2执行器函数中直接调用resolve reject就可以实现先改变状态
+  *         或者让回调函数定义的时间比状态改变延迟更久
+  *     -1.3回调函数得到数据的时间？
+  *         -先指定，在状态发生改变的时候，回调函数得到数据
+  *         -先改变，则在调用回调函数的时候得到数据*/
+
+  //先改变，后指定
+  let p = new Promise((resolve, reject) => {
+      resolve(1)
+  })
+
+  p.then(
+      value => {
+          console.log(value)
+      }
+  )
+
+
+  //先指定后改变
+  let p2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+          resolve(2)
+      })
+  })
+  console.log("-----------")//该语句为初始化代码，应该在所有回调函数之前执行
+
+  p2.then(
+      value => {
+          console.log(value)
+      }
+  )
+</script>
+</body>
+</html>

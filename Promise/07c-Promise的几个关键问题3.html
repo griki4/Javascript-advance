@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问题3</title>
+</head>
+<body>
+<script>
+    /*1 .then()方法的返回值是一个Promise对象 => 这个新的Promise的对象的状态？
+    *   -由then方法内部回调函数的执行结果来确定
+    *
+    *   -如果返回任何非Promise对象的值，则为resolved，返回值就是新Promise的value
+    *   -如果回调函数返回一个新的Promise对象，则根据该Promise对象状态确定，值也一致
+    *   -如果抛出异常，则为rejected，reason就是抛出的异常值*/
+
+    const p = new Promise((resolve, reject) => {
+        resolve(1)
+    }).then(
+        value => {
+            console.log("resolved " + value)
+            // return 2
+            // return Promise.resolve(2)
+            // return Promise.reject(3)
+            throw 5
+        },
+
+        reason => {
+            console.log("rejected " + reason)
+        }
+    ).then(
+        value => {
+            console.log("resolved2 " + value)
+        },
+
+        reason => {
+            console.log("reject2 " + reason)
+        }
+
+    )
+
+    console.log("start")
+</script>
+</body>
+</html>

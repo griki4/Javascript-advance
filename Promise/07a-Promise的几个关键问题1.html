@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1.如何改变Promise的状态？
+    *   -resolve:将Promise从pending变为resolved
+    *   -reject：将Promise从pending变为rejected
+    *   -throw error:抛出异常，此时也是变为rejected状态，reason就是这个异常
+    *
+    * 2.Promise绑定多个成功或者失败的回调函数的时候？
+    *   Promise状态改变这些回调函数都会被调用*/
+    let p = new Promise((resolve, reject) => {
+        throw new Error("出错了")
+    })
+
+    p.catch(
+        reason => {
+            console.log(reason)
+        }
+    )
+
+    p.catch(
+        reason => {
+            console.log("出错了 出错了",reason)
+        }
+    )
+</script>
+</body>
+</html>
