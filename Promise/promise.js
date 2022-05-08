@@ -76,7 +76,7 @@ Promise.prototype.then = function (onResolved, onRejected) {
         /*考虑异步任务，调用then方法的时候，Promise对象的状态还未改变
         * 此时需要保存onResolved onRejected这两个回调函数
         * 存在调用了多个then方法的情况，所以每调用一次then就要保存回调函数，且之前保存的不能删除
-        * Promise中包含异步任务时，*/
+        * Promise中包含异步任务时，onResolved方法应该类似于Promise = fulfilled一样判断回调函数的执行结果并修改返回的Promise对象的状态*/
         if (this.PromiseState === "pending") {
             this.callback.push({
                 onResolved,
