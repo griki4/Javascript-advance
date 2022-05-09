@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>async await</title>
+</head>
+<body>
+<script>
+    //async函数声明
+    //async函数的返回值是Promise对象
+    //Promise对象的状态由函数的执行结果确定
+    async function fn1() {
+        // return 1
+        // throw 2
+        return Promise.reject(3)
+        /*return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(5)
+            },1000)
+        })*/
+
+    }
+    let r = fn1()
+    console.log(r)
+
+    //await
+    //await右侧的表达式一般是Promise，也可以是其他值
+    //Promise成功时，await表达式会获取到它的值。想要获取失败的值，就需要利用try catch
+    //表达式如果是其他值，则直接返回这个值
+
+    async function fn2() {
+        try {
+            //await会中断当前函数的执行流程，直到它等待的Promise执行完毕将返回值交给他
+            const p = await fn1()
+            console.log(p)
+        }catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    fn2()
+
+    //await必须存在于async声明的函数中，但是async中不一定需要有await
+</script>
+</body>
+</html>

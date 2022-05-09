@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>队列类型</title>
+</head>
+<body>
+<script>
+  //JavaScript执行异步任务的回调函数时，会将异步任务的回调函数推到任务队列中等待执行
+  //任务队列分为两种，宏队列和微队列
+  //宏队列：保存DOM事件，Ajax请求，定时器等任务
+  setTimeout(() => { // 会立即放入宏列队
+      console.log('timeout callback1()')
+      Promise.resolve(3).then(
+          value => { // 会立即放入微列队
+              console.log('Promise onResolved3()', value)
+          }
+      )
+  }, 0)
+  setTimeout(() => { // 会立即放入宏列队
+      console.log('timeout callback2()')
+  }, 0)
+  Promise.resolve(1).then(
+      value => { // 会立即放入微列队
+          console.log('Promise onResolved1()', value)
+      }
+  )
+  Promise.resolve(2).then(
+      value => { // 会立即放入微列队
+          console.log('Promise onResolved2()', value)
+      }
+  )
+
+  //每一次从宏队列当中取出任务执行的时候，JavaScript都会先确认此时微队列是空的
+</script>
+</body>
+</html>
