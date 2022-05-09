@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    setTimeout(()=>{
+        console.log(1)
+    },0)
+    new Promise((resolve) => {
+        console.log(2)//该行代码是同步执行的，Promise执行器函数中的代码是同步的
+        resolve()
+    }).then(() => {
+        console.log(3)
+    }).then(() => {
+        console.log(4)
+    })
+    console.log(5)
+
+    //2 5 3 4 1
+</script>
+</body>
+</html>
