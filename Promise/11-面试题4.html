@@ -6,7 +6,8 @@
 </head>
 <body>
 <script>
-  setTimeout(() => {
+    //链式调用后面的内容必须等待前面的内容执行完成才能执行
+  setTimeout(() => {
     console.log("0")
   }, 0)
   new Promise((resolve,reject)=>{
@@ -26,7 +27,7 @@
     console.log("6")
   })
 
-  new Promise((resolve,reject)=>{
+  new Promise((resolve,reject)=>{
     console.log("7")
     resolve()
   }).then(()=>{         
