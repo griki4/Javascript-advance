@@ -10,7 +10,8 @@
   setTimeout(() => {
     console.log("0")
   }, 0)
-  new Promise((resolve,reject)=>{
+    
+  new Promise((resolve,reject)=>{
     console.log("1")
     resolve()
   }).then(()=>{        
@@ -26,6 +27,11 @@
   }).then(()=>{  
     console.log("6")
   })
+    //打印1之后，将Promise变为成功，这样做的结果是将最近的回调放入微队列
+    //然后执行微队列中的回调，打印2，新建一个Promise，打印3，将其状态改为成功。同样，将紧挨着的回调放入微队列
+    //将回调放入队列后，这里最外层的回调函数就执行完了，所以将打印6的回调函数放入微队列
+    //执行微队列中的回调函数，首先打印4，然后将打印5的回调函数放入微队列
+    //打印6 打印5
 
   new Promise((resolve,reject)=>{
     console.log("7")
