@@ -22,6 +22,25 @@
 
     //get 在属性被读取的时候，内部的代码会自动执行
     //set 在属性被修改的时候，内部的代码会自动执行
+    
+    class Person {
+        constructor(name) {
+            this._name = name
+        }
+
+        get name() {
+            return this._name
+        }
+
+        set name(value) {
+            this._name = value
+        }
+    }
+
+    let n = new Person("Jack")
+    console.log(n.name)
+    n.name = 'Rose'
+    console.log(n.name)
 </script>
 </body>
 </html>
