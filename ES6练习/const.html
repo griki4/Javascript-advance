@@ -20,6 +20,13 @@
     const S = ["Dante", "Vergil"]
     S.push("Nero")
     console.log(S)
+    
+    //如果想要使用const创建一个不可更改的对象
+    //可以使用Object.freeze()
+    const person = Object.freeze({})
+    person.name = 'Jack'
+    console.log(person.name)
+    console.log(typeof NaN)
 
 
 </script>
