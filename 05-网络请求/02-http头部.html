@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>http头部字段</title>
+</head>
+<body>
+<script>
+    //1.默认情况XHR请求默认发送的头部字段 p714
+
+    //2.自定义发送请求头部
+    let xhr = new XMLHttpRequest()
+
+    xhr.open('get', 'example.php', false)
+    xhr.setRequestHeader('myHeader', "myValue")
+    xhr.send(null)
+
+    //3.获取响应头部
+
+</script>
+</body>
+</html>

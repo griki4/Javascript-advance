@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建一个XHR对象
+    let xhr = new XMLHttpRequest()
+
+    //open方法 准备发送请求
+    /*参数一 请求类型（get post等）
+    * 参数二 请求URL
+    * 参数三 布尔值，表示请求是否为异步*/
+    xhr.open('get', 'example.php', false)
+
+    //3.send方法，实际发送请求的API
+    /*send必须要有一个参数，该参数用于包含请求体。没有请求体的时候则写null*/
+    xhr.send(null)
+
+    /*请求发送并得到响应后，xhr对象中的四个属性会被填充上对应的内容
+    * 1.responseText*/
+    /*
+        console.log(xhr.responseText)//响应体的文本，始终保存响应体的数据，无论响应是否成功
+        console.log(xhr.responseXML)//如果响应体是xml或者文本类型，则是包含响应数据的XML DOM文档。对于非XML的数据来说就是null
+        console.log(xhr.status)//http状态码，表示资源请求状态。一般大于等于200小于300表示成功，304也表示成功，不过是从本地缓存中拿到的资源。
+        console.log(xhr.statusText)//http状态的描述信息
+    */
+
+    //为判断请求是否成功，一般需要检查xhr对象的属性
+    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+        alert(xhr.responseText)
+    } else {
+        alert("Request was unsuccessful: " + xhr.status)
+    }
+
+    /*4.一般为了防止等待服务器响应时间过长而阻塞后续JavaScript代码的执行，都采用异步请求
+    *  为了应对异步请求，xhr中有一个readyState属性用于标识目前处于 请求/响应的哪个阶段
+    *   0 尚未调用open
+    *   1 已经调用open
+    *   2 已经使用send将请求发送
+    *   3 已经接收到部分响应
+    *   4 接收到全部响应
+    * 因此在进行上述http状态码的判断之前还需要确认响应是否接收完毕*/
+    if (xhr.readyState === 4) {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            alert(xhr.responseText)
+        } else {
+            alert("Request was unsuccessful: " + xhr.status)
+        }
+    }
+
+    //5.中止请求
+    xhr.abort()
+</script>
+</body>
+</html>

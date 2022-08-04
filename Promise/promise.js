@@ -14,9 +14,9 @@ function Promise(excutor) {
         if (self.PromiseState !== "pending") {
             return
         }
-       //1.改变状态
+        //1.改变状态
         self.PromiseState = "fulfilled"
-       //2.改变值
+        //2.改变值
         self.PromiseResult = data
         //3.如果状态改变且callback中存在回调函数则执行
         setTimeout(() => {
@@ -25,6 +25,7 @@ function Promise(excutor) {
             })
         })
     }
+
     //reject函数
     function reject(data) {
         if (self.PromiseState !== "pending") {
@@ -45,7 +46,7 @@ function Promise(excutor) {
     /*执行器函数还会碰见throw抛出异常的情况，所以执行时还需考虑异常捕获以及异常对Promise对象的影响*/
     try {
         excutor(resolve, reject)
-    }catch (error) {
+    } catch (error) {
         reject(error)
     }
 }
@@ -70,7 +71,7 @@ Promise.prototype.then = function (onResolved, onRejected) {
         //由于调用then方法的是Promise对象，所以直接使用this即可
         //三个状态下的重复性代码可以单独拿出来封装成一个函数
         function callback(type) {
-            try{
+            try {
                 let result = type(self.PromiseResult)
                 if (result instanceof Promise) {
                     //若返回新的Promise对象，判断该对象的状态,并且改变返回的新Promise对象的状态
@@ -80,21 +81,21 @@ Promise.prototype.then = function (onResolved, onRejected) {
                         r => {
                             reject(r)
                         })
-                }else {
+                } else {
                     //若返回非Promise对象的值则判定为成功
                     resolve(result)
                 }
-            }catch (error) {
+            } catch (error) {
                 reject(error)
             }
         }
 
-        if(this.PromiseState === "fulfilled") {
+        if (this.PromiseState === "fulfilled") {
             setTimeout(() => {
                 callback(onResolved)
             })
         }
-        if(this.PromiseState === "rejected") {
+        if (this.PromiseState === "rejected") {
             setTimeout(() => {
                 callback(onResolved)
             })
@@ -131,14 +132,14 @@ Promise.prototype.catch = function (onRejected) {
 //根据参数的类型返回一个新的Promise对象
 //resolve方法属于Promise函数对象
 Promise.resolve = function (value) {
-    return new Promise((resolve,reject) => {
+    return new Promise((resolve, reject) => {
         if (value instanceof Promise) {
             value.then(v => {
                 resolve(v)
-            },r => {
+            }, r => {
                 reject(r)
             })
-        }else {
+        } else {
             resolve(value)
         }
     })
@@ -158,15 +159,15 @@ Promise.all = function (promises) {
         let count = 0//标志，当count的值和数组长度一致时，成功
         let array = []//空数组，存储成功时的值
         //遍历数组
-        for (let i = 0;i < promises.length;i++) {
+        for (let i = 0; i < promises.length; i++) {
             //then方法查看每个对象的状态
             promises[i].then(v => {
-                count++
-                array[i] = v//防止顺序错误
-                if (count === promises.length) {
-                    resolve(array)
-                }
-            },
+                    count++
+                    array[i] = v//防止顺序错误
+                    if (count === promises.length) {
+                        resolve(array)
+                    }
+                },
                 r => {
                     reject(r)
                 })
@@ -178,13 +179,13 @@ Promise.all = function (promises) {
 //新的Promise状态由数组中最先改变状态的promise决定
 Promise.race = function (promises) {
     return new Promise((resolve, reject) => {
-        for (let i = 0;i < promises.length; i++) {
+        for (let i = 0; i < promises.length; i++) {
             //最先完成状态改变的Promise，直接遍历即可
             promises[i].then(v => {
-                resolve(v)
-            },
+                    resolve(v)
+                },
                 r => {
-                reject(r)
+                    reject(r)
                 })
         }
     })
